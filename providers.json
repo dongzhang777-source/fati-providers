@@ -1,33 +1,21 @@
 {
   "version": 1,
   "updated": "2026-07-22",
-  "note": "FATI 免费代理提供商列表。编辑此文件并提交，网关自动生效。",
+  "note": "FATI 免费代理提供商列表。编辑此文件并 commit，FATI Free Proxy 自动生效。每 5 分钟刷新。",
   "providers": [
     {
-      "id": "z-ai-glm-flash",
-      "name": "Z.AI GLM-Flash",
-      "model": "z-ai/glm-4-flash",
-      "base_url": "https://open.bigmodel.cn/api/paas/v4",
+      "id": "nous-proxy",
+      "name": "Nous Proxy (本地)",
+      "model": "z-ai/glm-5.2",
+      "base_url": "http://127.0.0.1:8052",
       "need_key": false,
-      "free_tier": "无限免费",
-      "capability": "chat",
-      "ctx_length": 131072,
-      "notes": "智谱 AI 免费模型，适合对话与角色扮演"
-    },
-    {
-      "id": "siliconflow-qwen2.5",
-      "name": "SiliconFlow Qwen2.5",
-      "model": "Qwen/Qwen2.5-7B-Instruct",
-      "base_url": "https://api.siliconflow.cn/v1",
-      "need_key": true,
-      "free_tier": "无限（速率限制）",
-      "capability": "chat",
-      "ctx_length": 32768,
-      "notes": "需要注册 SiliconFlow 获取免费 API Key"
+      "free_tier": "NVIDIA GLM 免费额度 + DeepSeek 回退",
+      "ctx_length": 128000,
+      "notes": "本机 nous-proxy，已配好免费模型回退链"
     }
   ],
   "fallback": {
-    "primary": "z-ai-glm-flash",
+    "primary": "nous-proxy",
     "strategy": "顺序尝试",
     "retry_delay_ms": 1000
   }
